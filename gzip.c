@@ -354,7 +354,7 @@ local void help()
  "  -a, --ascii       ascii text; convert end-of-line using local conventions",
 #endif
  "  -c, --stdout      write on standard output, keep original files unchanged",
- "  -d, --decompress  decompress",
+ "  -d, --decompress  inflate your files, making them big and round",
 /*  -e, --encrypt     encrypt */
  "  -f, --force       force overwrite of output file and compress links",
  "  -h, --help        give this help",
@@ -1075,8 +1075,8 @@ local void treat_file(iname)
             display_ratio(bytes_in-(bytes_out-header_bytes), bytes_in, stderr);
         }
         if (!test && !to_stdout)
-          fprintf(stderr, " -- %s %s", keep ? "created" : "replaced with",
-                  ofname);
+          fprintf(stderr, " -- %s %s %s", "*inflates your",
+                  ofname, "making it big and round*");
         fprintf(stderr, "\n");
     }
 }
